@@ -1,0 +1,20 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>porthole: build proxy</title>
+</head>
+<body>
+	<script src="../porthole.js"></script>
+ 	<script>
+ 		console.log( "Porthole:", Porthole );
+ 		var windowProxy = new Porthole.WindowProxy( 'proxy-build.html' );
+
+		// Register an event handler to receive messages;
+		windowProxy.addEventListener( function ( event ) {
+			console.log( "iframe event.data:", event.data );
+			windowProxy.post( { 'action' : 'NO!' } );
+		} );
+	</script>
+</body>
+</html>
